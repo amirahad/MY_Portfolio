@@ -25,6 +25,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 3PX 4PX 5PX black;
     background : linear-gradient( 110.1deg,  rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3% );
 } 
 .social:nth-child(even){
@@ -34,8 +35,9 @@ body{
     color: #ffffff;
 }
 .social:hover{
-     background : linear-gradient( 110.1deg,  rgba(168,251,60,1) 2.9%,rgba(34,126,34,1)  90.3% );
-   
+    background : linear-gradient( 110.1deg,  rgba(168,251,60,1) 2.9%,rgba(34,126,34,1)  90.3% );
+    box-shadow: none;
+    font-size: 24px;
 } 
 header{ 
     height: 120px;
@@ -51,6 +53,8 @@ header .logo img{
     background-image: linear-gradient( 110.1deg,  rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3% );
     position: relative;
     overflow: hidden;
+    box-shadow: 10px 10px 10px black;
+
 }
 .main img{
     position: absolute;
@@ -62,15 +66,92 @@ header .logo img{
     height: 200px;
     margin-top: 150px;
     color: #ffffff;
+    
+}
+.personal-info .intro{
+    display: flex;
+}
+.personal-info .typing{
+    margin-left: 10px;
+    position: relative;
+    text-shadow: 5PX 5PX 5PX black;
+}
+.personal-info .typing::after{
+    content: "";
+    position:absolute;
+    right: -5px;
+    width: 2px;
+    height: 28px;
+    border-right: 2px solid white;
+    animation: blink 0.8s infinite ease;
+}
+@keyframes blink{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 .personal-info h2{
     margin: 20px 0;
+    text-shadow: 5PX 5PX 5PX black;
 }
 .personal-info h3{
     margin-bottom: 20px 0;
 }
 .personal-info i{
     margin-right: 5px;
+}
+ 
+.about .color{
+    background : linear-gradient( 110.1deg,  rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3% );
+    color: #ffffff;
+    text-align: center;
+}
+.about .lead{
+    text-align: justify;
+}
+.skill .skill_item{
+    margin-bottom: 10px;
+}
+ .skill .skill_item .progress_br {
+    border: 1px solid #eee;
+    padding: 5px;
+    border-radius: 10px;
+}
+/* .progress {
+    display: -ms-flexbox;
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+} */
+.skill .skill_item .progress {
+    height: 10px;
+    border-radius: 10px;
+    background: #e8e8e8;
+}
+ .skill .skill_item .progress .progress-bar {
+    width: 0%;
+    transition: width .6s ease;
+    height: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+    align-self: center;
+    background-image: -moz-linear-gradient(0deg,rgba(34,126,34,1) 0%,rgba(168,251,60,1) 100%);
+    background-image: -webkit-linear-gradient(0deg,rgba(34,126,34,1) 0%,rgba(168,251,60,1) 100%);
+    background-image: -ms-linear-gradient(0deg rgba(34,126,34,1) 0%, rgba(168,251,60,1) 100%);
+}
+@keyframes width{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
 }
 
 @media(max-width:769px){
@@ -84,10 +165,16 @@ header .logo img{
     .links{
         display: none;
     }
+    .typing::after{
+        right: 86px;
+    }
 }
 @media(max-width:464px){
     /* .main img{
          display: none;  
     }
      */
+    .typing::after{
+        right: 101px;
+    }
 }
